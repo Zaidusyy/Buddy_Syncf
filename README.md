@@ -16,5 +16,5 @@ Apk : https://shorturl.at/jksAB
       fonts:
         - asset: fonts/rubik_regular.ttf
 ```
-
-
+# Introduction video to our project
+https://drive.google.com/file/d/1oCnrynNtNQIo8KaUD0_8Tmo6YAPX0hEr/view?usp=sharing
