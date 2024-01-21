@@ -1,5 +1,8 @@
 # BuddySync
 
+# Check out our Website
+https://github.com/Shivastoic/Buddy-Sync-Website
+
 A new Flutter project.
 
 Apk : https://shorturl.at/jksAB
@@ -19,5 +22,3 @@ Apk : https://shorturl.at/jksAB
 # Introduction video to our project
 https://drive.google.com/file/d/1oCnrynNtNQIo8KaUD0_8Tmo6YAPX0hEr/view?usp=sharing
 
-# Check out our Website
-https://github.com/Shivastoic/Buddy-Sync-Website
