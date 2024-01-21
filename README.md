@@ -1,7 +1,7 @@
 # BuddySync
 
 # Check out our Website
-https://github.com/Shivastoic/Buddy-Sync-Website
+- Buddy for PC: https://github.com/Shivastoic/Buddy-Sync-Website
 
 A new Flutter project.
 
