@@ -3,6 +3,7 @@ import 'package:uu_loginui/Home.dart';
 import 'package:uu_loginui/LoginUi.dart';
 import 'package:uu_loginui/Profile.dart';
 import 'package:uu_loginui/SignupUi.dart';
+import 'package:uu_loginui/Wallet.dart';
 
 class Home_screen extends StatefulWidget {
   const Home_screen({super.key});
@@ -13,11 +14,10 @@ class Home_screen extends StatefulWidget {
 
 class _Home_screenState extends State<Home_screen> {
   int myindex = 0;
-  List<Widget> bottomnav = [Home(), Center(child: Text('ChatBot')),Center(child: Text('Wallet')),Profile()];
+  List<Widget> bottomnav = [Home(), Center(child: Text('ChatBot')),Wallet(),Profile()];
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      //here i have to add bottomnav[index] as a child of scaffold
       home: Scaffold(
         resizeToAvoidBottomInset: false,
         backgroundColor: Colors.white,

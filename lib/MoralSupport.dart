@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:youtube_player_flutter/youtube_player_flutter.dart';
 
+import 'Constants.dart';
+
 class Moralsupport extends StatefulWidget {
   const Moralsupport({super.key});
 
@@ -9,8 +11,11 @@ class Moralsupport extends StatefulWidget {
 }
 
 class _MoralsupportState extends State<Moralsupport> {
+  String? videoId = YoutubePlayer.convertUrlToId(
+      "https://www.youtube.com/watch?v=BBAyRBTfsOU");
+  // BBAyRBTfsOU
   YoutubePlayerController ytController = YoutubePlayerController(
-      initialVideoId: 'tibOZdfR_fI', flags: YoutubePlayerFlags(autoPlay: true));
+      initialVideoId: ytid, flags: YoutubePlayerFlags(autoPlay: true));
 
   @override
   Widget build(BuildContext context) {
@@ -24,7 +29,11 @@ class _MoralsupportState extends State<Moralsupport> {
           child: SingleChildScrollView(
             child: Column(
               children: [
-                YoutubePlayer(controller: ytController),
+                Container(
+                    decoration: BoxDecoration(
+                        gradient: LinearGradient(colors: gradiant1,begin: Alignment.topCenter),borderRadius: BorderRadius.circular(15)),
+                    padding: EdgeInsets.all(10),
+                    child: YoutubePlayer(controller: ytController)),
                 Column(
                   children: [
                     Container(
@@ -60,10 +69,8 @@ class _MoralsupportState extends State<Moralsupport> {
                       child: Center(
                           child: TextButton(
                         onPressed: () {
-                          setState(() {
-                            ytController = YoutubePlayerController(
-                                initialVideoId: 'tibOZdfR_fI');
-                          });
+                          ytid = 'Q5dkpQFWDdY';
+                          setState(() {});
                         },
                         child: Text(
                           'Video 2',
