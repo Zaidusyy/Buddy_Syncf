@@ -1,7 +1,7 @@
-
 import 'package:flutter/material.dart';
 import 'package:uu_loginui/EventView.dart';
 import 'package:uu_loginui/SubCommunity.dart';
+import 'package:uu_loginui/Utils/ToastMessage.dart';
 
 final List<Color> gradiant1 = [
   Colors.purple.shade800,
@@ -19,27 +19,35 @@ final List<Color> gradiant3 = [
   Colors.purple.shade400
 ];
 
-String ytid='tibOZdfR_fI';
+String ytid = 'tibOZdfR_fI';
 
 class UpcomingEventBanner extends StatelessWidget {
-
-  final String image,title,subtitle;
+  final String image, title, subtitle;
   var navigateTo;
-  double height,width;
+  double height, width;
 
-  UpcomingEventBanner({super.key, required this.image, required this.title, required this.subtitle,this.navigateTo,this.height=220,this.width=200});
+  UpcomingEventBanner(
+      {super.key,
+      required this.image,
+      required this.title,
+      required this.subtitle,
+      this.navigateTo,
+      this.height = 220,
+      this.width = 200});
 
   @override
   Widget build(BuildContext context) {
     return InkWell(
-      onTap: (){
-        if(navigateTo!=null){
-        Navigator.push(context, MaterialPageRoute(builder: (context)=>navigateTo));
+      onTap: () {
+        if (navigateTo != null) {
+          Navigator.push(
+              context, MaterialPageRoute(builder: (context) => navigateTo));
         }
       },
       child: Container(
-        decoration: BoxDecoration(color: Colors.grey.shade100,borderRadius: BorderRadius.circular(10)),
-
+        decoration: BoxDecoration(
+            color: Colors.grey.shade100,
+            borderRadius: BorderRadius.circular(10)),
         margin: const EdgeInsets.all(10),
         padding: EdgeInsets.all(5),
         child: Column(
@@ -49,16 +57,13 @@ class UpcomingEventBanner extends StatelessWidget {
             Container(
               margin: EdgeInsets.only(bottom: 10),
               height: height,
-              width:width,
+              width: width,
               decoration: BoxDecoration(
                   image: DecorationImage(
-                      image: NetworkImage(
-                          image),
-                      fit: BoxFit.cover),
+                      image: NetworkImage(image), fit: BoxFit.cover),
                   color: Colors.purple.shade700,
                   borderRadius: BorderRadius.circular(10),
-                  border: Border.all(
-                      color: Colors.purple.shade900, width: 2)),
+                  border: Border.all(color: Colors.purple.shade900, width: 2)),
             ),
             Text(
               title,
@@ -73,8 +78,7 @@ class UpcomingEventBanner extends StatelessWidget {
               child: Text(
                 subtitle,
                 textAlign: TextAlign.start,
-                style: TextStyle(
-                    color: Colors.purple.shade700, fontSize: 10),
+                style: TextStyle(color: Colors.purple.shade700, fontSize: 10),
               ),
             )
           ],
@@ -83,7 +87,6 @@ class UpcomingEventBanner extends StatelessWidget {
     );
   }
 }
-
 
 class CategoryButton extends StatelessWidget {
   final String title;
@@ -135,7 +138,8 @@ class CategoryButton extends StatelessWidget {
               style: TextStyle(
                   fontSize: 20,
                   fontWeight: FontWeight.bold,
-                  color: Colors.white),textAlign: TextAlign.center,
+                  color: Colors.white),
+              textAlign: TextAlign.center,
             )
           ],
         ),
@@ -146,9 +150,15 @@ class CategoryButton extends StatelessWidget {
 
 class InputText extends StatelessWidget {
   String name;
-  final prefixicon,keybordtype,sufixicon;
+  final prefixicon, keybordtype, sufixicon;
   var controller;
-   InputText({super.key,required this.name,this.sufixicon,required this.prefixicon,this.keybordtype,this.controller});
+  InputText(
+      {super.key,
+      required this.name,
+      this.sufixicon,
+      required this.prefixicon,
+      this.keybordtype,
+      this.controller});
 
   @override
   Widget build(BuildContext context) {
@@ -160,7 +170,6 @@ class InputText extends StatelessWidget {
         controller: controller,
         decoration: InputDecoration(
           filled: true,
-
           fillColor: Colors.purple.shade50,
           label: Text('$name'),
           labelStyle: TextStyle(color: Colors.purple),
@@ -168,15 +177,15 @@ class InputText extends StatelessWidget {
             prefixicon,
             color: Colors.purple.shade900,
           ),
-
-          suffixIcon: Icon(sufixicon,color: Colors.purple.shade900,),
+          suffixIcon: Icon(
+            sufixicon,
+            color: Colors.purple.shade900,
+          ),
           focusedBorder: OutlineInputBorder(
-              borderSide: const BorderSide(
-                  color: Colors.purpleAccent),
+              borderSide: const BorderSide(color: Colors.purpleAccent),
               borderRadius: BorderRadius.circular(10)),
           enabledBorder: OutlineInputBorder(
-              borderSide: BorderSide(
-                  color: Colors.purple.shade900),
+              borderSide: BorderSide(color: Colors.purple.shade900),
               borderRadius: BorderRadius.circular(10)),
         ),
       ),
@@ -186,8 +195,13 @@ class InputText extends StatelessWidget {
 
 class Roundbutton extends StatelessWidget {
   String name;
-  final Navigaton;
-   Roundbutton({super.key,required this.name,this.Navigaton=null});
+  final message;
+  final VoidCallback onTap;
+
+  Roundbutton(
+      {super.key,
+      required this.name,
+      this.message = null,required this.onTap});
 
   @override
   Widget build(BuildContext context) {
@@ -200,27 +214,30 @@ class Roundbutton extends StatelessWidget {
       padding: const EdgeInsets.all(2),
       child: TextButton(
         style: ButtonStyle(
-            overlayColor: MaterialStateProperty.all(
-                Colors.deepPurple.shade900)),
-        onPressed: () {
-          if(Navigaton=='pop'){
-            Navigator.pop(context);
-          }
-          else if(Navigaton!=null) {
-            Navigator.push(
-                context, MaterialPageRoute(builder: (context) => Navigaton));
-          }
-        },
-        child:  Text(
+            overlayColor:
+                MaterialStateProperty.all(Colors.deepPurple.shade900)),
+        onPressed:onTap,
+        child: Text(
           name,
           style: TextStyle(
-              color: Colors.white,
-              fontWeight: FontWeight.bold,
-              fontSize: 30,),
+            color: Colors.white,
+            fontWeight: FontWeight.bold,
+            fontSize: 30,
+          ),
         ),
       ),
     );
   }
 }
 
-
+final GDSCparagraph =
+    """The GDSC (Google Developer Student Clubs) Solution Challenge is an exciting annual competition that empowers students worldwide to tackle real-world problems using Google's cutting-edge technology. \n
+In the 2024 edition of the challenge, students are invited to form teams and develop innovative solutions leveraging a wide array of Google tools and platforms. \n
+Participants have the opportunity to utilize Google Cloud services, Firebase, Google Maps Platform, and other powerful resources to address pressing issues in various domains such as healthcare, education, sustainability, and more. \n
+By harnessing the latest technologies and their creativity, students can make a positive impact on their communities and beyond. \n
+Throughout the Solution Challenge, teams collaborate, iterate, and refine their solutions, guided by mentors and supported by the vibrant GDSC community. \n
+With access to workshops, resources, and expert guidance, participants gain valuable skills and experiences that extend beyond the competition. \n
+Whether you're a seasoned developer or just starting your journey in technology, the GDSC Solution Challenge offers a platform to showcase your talents, solve real problems, and make a difference in the world. \n
+Join us in this journey of innovation, collaboration, and impact! \n
+To learn more about the GDSC Solution Challenge 2024 and how to participate, visit the official GDSC website or reach out to your local GDSC chapter. \n
+Get ready to unleash your creativity, drive positive change, and shape the future with Google technology! """;

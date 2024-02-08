@@ -2,7 +2,7 @@
 
 Apk : https://shorturl.at/jksAB
 
-Quotes API Reference repo: https://github.com/lukePeavey/quotable  
+Quotes API Reference repo: https://github.com/lukePeavey/quotable
 
 # First Install All Requirements and Dependencies then manually run the Code
 (All are inside pubspec.yaml file )

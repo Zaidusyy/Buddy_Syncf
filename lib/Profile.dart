@@ -1,4 +1,8 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:uu_loginui/Constants.dart';
+import 'package:uu_loginui/LoginUi.dart';
 import 'package:uu_loginui/SignupUi.dart';
 
 class Profile extends StatefulWidget {
@@ -9,6 +13,43 @@ class Profile extends StatefulWidget {
 }
 
 class _ProfileState extends State<Profile> {
+
+  String username="",collegename="",email="";
+
+
+
+  final auth=FirebaseAuth.instance;
+
+  @override
+  void initState() {
+
+    super.initState();
+    fetchData();
+  }
+
+  Future<void> fetchData() async {
+    String? userId = auth.currentUser?.uid.toString();
+
+    try {
+      final docSnapshot = await FirebaseFirestore.instance.collection('userInfo').doc(userId).get();
+      if (docSnapshot.exists) {
+        setState(() {
+          email=auth.currentUser!.email.toString();
+          username = docSnapshot.data()!['name'].toString();
+          collegename=docSnapshot.data()!['college'].toString();
+        });
+      } else {
+        print('Document does not exist');
+      }
+    } catch (e) {
+      print('Error fetching data: $e');
+    }
+  }
+
+
+
+
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -53,7 +94,7 @@ class _ProfileState extends State<Profile> {
                       borderRadius: BorderRadius.circular(10)),
                   filled: true,
                   fillColor: Colors.purple.shade50,
-                  label: const Text('Mohd Zaid '),
+                  label:  Text(username),
                   labelStyle:
                   const TextStyle(color: Colors.purple),
                   prefixIcon: Icon(
@@ -77,7 +118,7 @@ class _ProfileState extends State<Profile> {
                       borderRadius: BorderRadius.circular(10)),
                   filled: true,
                   fillColor: Colors.purple.shade50,
-                  label: const Text('Zaidemail@gmail.com'),
+                  label:  Text(email),
                   labelStyle:
                   const TextStyle(color: Colors.purple),
                   prefixIcon: Icon(
@@ -101,7 +142,7 @@ class _ProfileState extends State<Profile> {
                       borderRadius: BorderRadius.circular(10)),
                   filled: true,
                   fillColor: Colors.purple.shade50,
-                  label: const Text('United University'),
+                  label:  Text(collegename),
                   labelStyle:
                   const TextStyle(color: Colors.purple),
                   prefixIcon: Icon(
@@ -136,35 +177,12 @@ class _ProfileState extends State<Profile> {
                 ),
               ),
             ),
-            Padding(
-              padding: const EdgeInsets.only(top: 30, bottom: 10),
-              child: Container(
-                height: 60,
-                width: 150,
-                decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(10),
-                    color: Colors.purple.shade900),
-                padding: const EdgeInsets.all(2),
-                child: Expanded(
-                  child: TextButton(
-                    style: ButtonStyle(
-                        overlayColor: MaterialStateProperty.all(
-                            Colors.deepPurple.shade900)),
-                    onPressed: () {
-                      Navigator.push(context, MaterialPageRoute(builder: (context)=>SignupUi()));
-                    },
-                    child: const Text(
-                      'Log Out',
-                      style: TextStyle(
-                          color: Colors.white,
-                          fontWeight: FontWeight.bold,
-                          fontSize: 30,
-                          fontFamily: 'rubikm'),
-                    ),
-                  ),
-                ),
-              ),
-            ),
+            Roundbutton(name: 'Logout', onTap: (){
+              FirebaseAuth auth=FirebaseAuth.instance;
+              auth.signOut().then((value) => {
+                Navigator.push(context, MaterialPageRoute(builder:(context) => LoginUi() ))
+              });
+            }),
             TextButton(
               onPressed: () {
 

@@ -44,8 +44,10 @@ class AddTransection extends StatelessWidget {
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceAround,
             children: [
-              Roundbutton(name: 'Income', Navigaton: 'pop'),
-              Roundbutton(name: 'Expenses', Navigaton: 'pop')
+              Roundbutton(name: 'Income',onTap:  () {
+                Navigator.pop(context);}),
+              Roundbutton(name: 'Expenses',onTap:  () {
+                Navigator.pop(context);})
             ],
           ),
         ],
