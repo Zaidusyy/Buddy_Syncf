@@ -1,5 +1,6 @@
 
 import 'package:flutter/material.dart';
+import 'package:uu_loginui/EventView.dart';
 import 'package:uu_loginui/SubCommunity.dart';
 
 final List<Color> gradiant1 = [
@@ -23,53 +24,61 @@ String ytid='tibOZdfR_fI';
 class UpcomingEventBanner extends StatelessWidget {
 
   final String image,title,subtitle;
+  var navigateTo;
+  double height,width;
 
-
-  UpcomingEventBanner({super.key, required this.image, required this.title, required this.subtitle});
+  UpcomingEventBanner({super.key, required this.image, required this.title, required this.subtitle,this.navigateTo,this.height=220,this.width=200});
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      decoration: BoxDecoration(color: Colors.grey.shade100,borderRadius: BorderRadius.circular(10)),
-      height: 220,
-      margin: const EdgeInsets.all(10),
-      padding: EdgeInsets.all(5),
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.center,
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: [
-          Container(
-            margin: EdgeInsets.only(bottom: 10),
-            height: 150,
-            width: 200,
-            decoration: BoxDecoration(
-                image: DecorationImage(
-                    image: NetworkImage(
-                        image),
-                    fit: BoxFit.cover),
-                color: Colors.purple.shade700,
-                borderRadius: BorderRadius.circular(10),
-                border: Border.all(
-                    color: Colors.purple.shade900, width: 2)),
-          ),
-          Text(
-            title,
-            style: TextStyle(
-                fontSize: 15,
-                fontWeight: FontWeight.bold,
-                color: Colors.purple.shade900),
-            textAlign: TextAlign.start,
-          ),
-          Padding(
-            padding: const EdgeInsets.only(top: 5),
-            child: Text(
-              subtitle,
-              textAlign: TextAlign.start,
-              style: TextStyle(
-                  color: Colors.purple.shade700, fontSize: 10),
+    return InkWell(
+      onTap: (){
+        if(navigateTo!=null){
+        Navigator.push(context, MaterialPageRoute(builder: (context)=>navigateTo));
+        }
+      },
+      child: Container(
+        decoration: BoxDecoration(color: Colors.grey.shade100,borderRadius: BorderRadius.circular(10)),
+
+        margin: const EdgeInsets.all(10),
+        padding: EdgeInsets.all(5),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.center,
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Container(
+              margin: EdgeInsets.only(bottom: 10),
+              height: height,
+              width:width,
+              decoration: BoxDecoration(
+                  image: DecorationImage(
+                      image: NetworkImage(
+                          image),
+                      fit: BoxFit.cover),
+                  color: Colors.purple.shade700,
+                  borderRadius: BorderRadius.circular(10),
+                  border: Border.all(
+                      color: Colors.purple.shade900, width: 2)),
             ),
-          )
-        ],
+            Text(
+              title,
+              style: TextStyle(
+                  fontSize: 15,
+                  fontWeight: FontWeight.bold,
+                  color: Colors.purple.shade900),
+              textAlign: TextAlign.start,
+            ),
+            Padding(
+              padding: const EdgeInsets.only(top: 5),
+              child: Text(
+                subtitle,
+                textAlign: TextAlign.start,
+                style: TextStyle(
+                    color: Colors.purple.shade700, fontSize: 10),
+              ),
+            )
+          ],
+        ),
       ),
     );
   }

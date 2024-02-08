@@ -1,6 +1,7 @@
 import 'dart:convert';
 import 'package:flutter/material.dart';
 import 'package:uu_loginui/Constants.dart';
+import 'package:uu_loginui/EventView.dart';
 import 'package:uu_loginui/Food.dart';
 import 'package:uu_loginui/MoralSupport.dart';
 import 'package:uu_loginui/SubCommunity.dart';
@@ -116,10 +117,12 @@ class _HomeState extends State<Home> {
     scrollDirection: Axis.horizontal,
     child: Row(
     children: [
-      UpcomingEventBanner(image: 'https://i.pinimg.com/originals/95/e9/d8/95e9d8383e89e22f39f49efc9f217e70.jpg', title: 'CODE-A-THON', subtitle: 'Coding Event in UCER'),
-      UpcomingEventBanner(image: 'https://res.cloudinary.com/startup-grind/image/upload/c_fill,dpr_2.0,f_auto,g_center,h_1080,q_100,w_1080/v1/gcs/platform-data-dsc/events/SolutionChallenge_2024_BevyPlatformThumbnail.png', title: 'GDSC Solution Challenge 2024', subtitle: 'Google Developer Student Clubs Event at UIT'),
-      UpcomingEventBanner(image: 'https://i.pinimg.com/originals/95/e9/d8/95e9d8383e89e22f39f49efc9f217e70.jpg', title: 'CODE-A-THON', subtitle: 'Coding Event in UCER'),
-      UpcomingEventBanner(image: 'https://res.cloudinary.com/startup-grind/image/upload/c_fill,dpr_2.0,f_auto,g_center,h_1080,q_100,w_1080/v1/gcs/platform-data-dsc/events/SolutionChallenge_2024_BevyPlatformThumbnail.png', title: 'GDSC Solution Challenge 2024', subtitle: 'Google Developer Student Clubs Event at UIT'),
+      UpcomingEventBanner(image: 'https://i.pinimg.com/originals/95/e9/d8/95e9d8383e89e22f39f49efc9f217e70.jpg', title: 'CODE-A-THON', subtitle: 'Coding Event in UCER',navigateTo: EventView(),height: 150,),
+      UpcomingEventBanner(image: 'https://res.cloudinary.com/startup-grind/image/upload/c_fill,dpr_2.0,f_auto,g_center,h_1080,q_100,w_1080/v1/gcs/platform-data-dsc/events/SolutionChallenge_2024_BevyPlatformThumbnail.png', title: 'GDSC Solution Challenge 2024', subtitle: 'Google Developer Student Clubs Event at UIT',height: 150,),
+      UpcomingEventBanner(image: 'https://i.pinimg.com/originals/95/e9/d8/95e9d8383e89e22f39f49efc9f217e70.jpg', title: 'CODE-A-THON', subtitle: 'Coding Event in UCER',navigateTo: EventView(),height: 150,),
+      UpcomingEventBanner(image: 'https://res.cloudinary.com/startup-grind/image/upload/c_fill,dpr_2.0,f_auto,g_center,h_1080,q_100,w_1080/v1/gcs/platform-data-dsc/events/SolutionChallenge_2024_BevyPlatformThumbnail.png', title: 'GDSC Solution Challenge 2024', subtitle: 'Google Developer Student Clubs Event at UIT',height: 150,),
+
+
 
     ],
     ),

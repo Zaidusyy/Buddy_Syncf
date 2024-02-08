@@ -10,6 +10,9 @@ class Wallet extends StatefulWidget {
 }
 
 class _WalletState extends State<Wallet> {
+
+   final double income=0,expenses=0,balance=0;
+
   Map<String, double> datamap = {
     "Income": 500,
     "Expenses": 200,
