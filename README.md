@@ -1,6 +1,8 @@
 # BuddySync
 
-Apk : https://shorturl.at/jksAB
+Apk :https://shorturl.at/pxDPZ 
+
+//The FIrebase Backend may be after 30 days because of test mode.
 
 Quotes API Reference repo: https://github.com/lukePeavey/quotable
 
