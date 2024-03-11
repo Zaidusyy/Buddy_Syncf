@@ -5,7 +5,7 @@
 
 A new Flutter project.
 
-Apk : https://shorturl.at/jksAB
+Apk : https://shorturl.at/pxDPZ
 
 # First Install All Requirements and Dependencies then manually run the Code
 (All are inside pubspec.yaml file )
